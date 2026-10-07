@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- Inert CSV is rendered as text. This early policy is a second barrier;
+       application-owned inline styles remain required by presentation checks. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; script-src-attr 'none'; worker-src 'self'; connect-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>NCE Renewal Check</title>
+  <link rel="stylesheet" href="./termline.css">
+</head>
+<body>
+  <main>
+    <h1 class="brand"><img src="./assets/brand-mark-v1-bright.png" width="56" height="56" alt=""><span>NCE Renewal Check</span></h1>
+    <p id="runtime-warning" role="alert">If this message remains visible, the check has not started. Use a current browser with JavaScript enabled and load this page through its local or hosted web address. No result is available; do not rely on an earlier result.</p>
+    <noscript><p>This check requires JavaScript. Use a supported browser before checking records.</p></noscript>
+    <p id="time-warning" tabindex="-1" role="alert" hidden></p>
+    <section id="preflight">
+      <nav class="workspace-tools" aria-label="Reference pages"><a id="open-file-guide" href="#file-guide">File guide</a><a id="open-evidence" href="#evidence-panels">Evidence</a></nav>
+      <form id="record-form">
+        <div class="file-pair">
+          <div class="file-field"><label for="pax-file">Pax8 CSV</label><input id="pax-file" type="file" required></div>
+          <div class="file-field"><label for="halo-file">HaloPSA CSV</label><input id="halo-file" type="file" required></div>
+        </div>
+        <section id="case-finder" data-case-finder aria-label="Find a case">
+          <button type="button" id="cancel-case-finder" hidden>Cancel</button>
+          <p id="finder-status" role="status" tabindex="-1"></p>
+          <div id="finder-controls" hidden><label for="case-query">Search subscriptions</label><input id="case-query" type="search" maxlength="160" autocomplete="off"></div>
+          <div id="finder-results"></div>
+        </section>
+        <label for="subscription-id">Pax8 subscription ID to check</label><input id="subscription-id" type="text" required maxlength="128" autocomplete="off">
+        <div class="fact-controls">
+          <div><label for="renewal-term">Next commitment term</label><select id="renewal-term" name="renewalTerm"><option value="not-asked">Not supplied.</option><option value="annual">Annual commitment.</option><option value="monthly">Monthly commitment.</option><option value="other">Another term or product.</option><option value="unknown">Not confirmed.</option></select></div>
+          <div><label for="agreement">Signed customer order</label><select id="agreement" name="agreement"><option value="not-asked">Not supplied.</option><option value="yes">Available.</option><option value="no">Need to find it.</option><option value="unknown">Not confirmed.</option></select></div>
+        </div>
+        <button type="submit">Check records</button>
+        <button type="button" id="clear-records" hidden>Reset</button>
+        <p id="correction-status" role="status"></p>
+        <div id="read-status" hidden><p id="read-status-message" role="status"></p><button type="button" id="cancel-read">Cancel this check</button></div>
+      </form>
+      <section id="record-result" tabindex="-1" aria-live="polite" hidden></section>
+    </section>
+    <section id="evidence-panels" hidden>
+      <a id="close-evidence" href="#preflight">Back to check</a>
+      <h2 id="evidence-panels-title">Evidence</h2>
+      <section id="record-info"></section>
+        <section id="original-evidence" aria-labelledby="original-evidence-title"><h3 id="original-evidence-title">Supplied original files</h3><div id="original-evidence-sources"></div></section>
+        <section id="case-subject" aria-labelledby="case-subject-title" aria-live="polite">
+        <h3 id="case-subject-title">Current case</h3>
+        <p>No source-selected case. Enter one subscription ID and check the supplied records.</p>
+        </section>
+    </section>
+    <section id="file-guide" hidden>
+      <button type="button" id="close-file-guide">Back to records</button>
+      <h2 id="file-support-title">File guide</h2>
+      <dl id="file-support-contract"></dl>
+      <nav class="guide-downloads" aria-label="Synthetic example downloads"><a href="./fixtures/pax8-synthetic.csv" download>Pax8 example CSV</a><a href="./fixtures/pax8-economic-synthetic.csv" download>Pax8 term and billing example CSV</a><a href="./fixtures/halo-synthetic.csv" download>HaloPSA example CSV</a></nav>
+    </section>
+  </main>
+  <script type="module" src="./app.mjs"></script>
+</body>
+</html>

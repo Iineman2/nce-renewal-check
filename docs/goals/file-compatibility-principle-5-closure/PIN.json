@@ -1,0 +1,10 @@
+{
+  "indexSha256": "083fa77e3baad2992465f99872dbc94338febe65c17e6e05d8e4d745e288dd65",
+  "verifierSha256": "987c2cf7f5cb5383b4de086105dfc62eecdbb6467adbf2ca8147d6c64ddfdca3",
+  "bootstrap": "C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\docs\\goals\\file-compatibility-principle-5-closure\\bootstrap.py",
+  "bootstrapIdentity": {
+    "size": 718,
+    "sha256": "f9552e0aca434f3ef5e05467189b3bafe58b0ac9dddf2beb0d29c2b66135aa45"
+  },
+  "rule": "Bootstrap constants are external to the pack. Never replace a trusted pin with an observed new hash during verification."
+}

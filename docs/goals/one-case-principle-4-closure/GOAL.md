@@ -1,0 +1,1 @@
+Execute PLAN.md with Krypton Execution. Close the 287-condition audit and three reproduced local findings, preserve historical evidence, require independent review and frozen complete proof. External and bounded acceptance must remain truthful.

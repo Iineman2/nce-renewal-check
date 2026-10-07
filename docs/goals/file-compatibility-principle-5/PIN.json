@@ -1,0 +1,17 @@
+{
+  "version": "authorized-handling-pin-v1",
+  "index": {
+    "path": "output/file-compatibility-principle-5/proof-index.json",
+    "identity": {
+      "size": 249482,
+      "sha256": "c1dc729193a67c0cde68bde7455f7071d1196a78ad5843116348b7e28f17bd14"
+    }
+  },
+  "verifier": {
+    "path": "output/file-compatibility-principle-5/verify.py",
+    "identity": {
+      "size": 2622,
+      "sha256": "97e32f617626ddc1c2ed6a7f38f09a4a4c669592517dc8417c4dfd5aa2ef2029"
+    }
+  }
+}

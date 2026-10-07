@@ -1,0 +1,2 @@
+source_account_id,subscription_id,customer_ref,distributor,product_family,commerce_model,seat_based,commitment_term,renewal_date,end_of_term_state,billing_frequency,scheduled_commitment_term,scheduled_billing_frequency,term_start_date,term_end_date
+synthetic-account,example-annual,customer-example,pax8,Microsoft 365,NCE,yes,annual,2026-10-15,renew,monthly,annual,monthly,2025-10-15,2026-10-14

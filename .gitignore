@@ -1,0 +1,12 @@
+.playwright-cli/
+
+# Generated proof archives, native browser traces, and publication staging.
+# The existing output tree is preserved locally and published as a release asset.
+output/
+.publication/
+node_modules/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example

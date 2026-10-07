@@ -1,0 +1,1 @@
+Execute PLAN.md with Krypton Execution. Main owns implementation; require independent PRE, POST correctness/maintainability and final source-bound evidence review. Complete local acceptance without claiming external authenticated or human acceptance.

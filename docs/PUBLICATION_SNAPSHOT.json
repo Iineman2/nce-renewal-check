@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-07",
+  "repository": "https://github.com/Iineman2/nce-renewal-check",
+  "license": "MIT",
+  "localChecks": {
+    "modelTests": 778,
+    "modelFailures": 0,
+    "syntaxFiles": 124,
+    "syntaxFailures": 0
+  },
+  "applicationSourceUnchanged": true,
+  "applicationFileCount": 188,
+  "qualifiedSourceManifestSha256": "097714dab771fe1101b5767523baf24b80e305096ac386bb2e90ac65eeef7bf7",
+  "historicalQCGapsRemainOpen": true,
+  "archive": {
+    "asset": "output-qc-history.zip",
+    "fileCount": 24699,
+    "originalBytes": 2171893420,
+    "archiveBytes": 369406931,
+    "sha256": "331153ee1447a7e65f57ca79d2097221dd27cbc9c741bdcaaa8b10529244eb3c",
+    "manifestSha256": "8cac4c3a6cf421d86407b44b74d584e86be6d2438aac88735cb5eaa65f658264",
+    "allEntriesVerifiedAgainstArchiveAndLocalSource": true
+  },
+  "credentialScan": {
+    "textFilesScanned": 20212,
+    "retainedBinaryOriginalFilesScanned": 2530,
+    "credentialPatternMatches": 0,
+    "sensitiveHeaderMatchesReviewed": 6,
+    "sensitiveHeaderDisposition": "synthetic native probe marker and audit prose",
+    "researchPdfEmailCredentialMatches": 0
+  }
+}

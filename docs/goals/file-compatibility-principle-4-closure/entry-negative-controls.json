@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "controls": [
+    {
+      "name": "wrong-PIN",
+      "expectedCause": "expected-pin-hash",
+      "command": [
+        "C:/Users/aryas/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\docs\\goals\\file-compatibility-principle-4-closure\\bootstrap.py",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\docs\\goals\\file-compatibility-principle-4-closure\\bootstrap.py\", line 33, in <module>\n    pin=pin_payload((Path(__file__).parent/'PIN.json').read_bytes(),sys.argv[1]);checked_index(pin)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\docs\\goals\\file-compatibility-principle-4-closure\\bootstrap.py\", line 20, in pin_payload\n    require(isinstance(expected,str) and len(expected)==64 and hashlib.sha256(raw).hexdigest()==expected,'expected-pin-hash');pin=loads(raw)\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\docs\\goals\\file-compatibility-principle-4-closure\\bootstrap.py\", line 10, in require\n    if not x:raise AssertionError(cause)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: expected-pin-hash\n",
+      "rejected": true
+    },
+    {
+      "name": "missing-PIN",
+      "expectedCause": "expected-pin-required",
+      "command": [
+        "C:/Users/aryas/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\docs\\goals\\file-compatibility-principle-4-closure\\bootstrap.py"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\docs\\goals\\file-compatibility-principle-4-closure\\bootstrap.py\", line 32, in <module>\n    require(len(sys.argv)==2,'expected-pin-required')\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\docs\\goals\\file-compatibility-principle-4-closure\\bootstrap.py\", line 10, in require\n    if not x:raise AssertionError(cause)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: expected-pin-required\n",
+      "rejected": true
+    },
+    {
+      "name": "missing-verifier-hashes",
+      "expectedCause": "external-expected-hash-required",
+      "command": [
+        "C:/Users/aryas/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-4-closure\\verify.py",
+        "verify"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "external-expected-hash-required\n",
+      "rejected": true
+    }
+  ]
+}

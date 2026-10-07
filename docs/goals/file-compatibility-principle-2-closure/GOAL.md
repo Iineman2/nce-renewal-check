@@ -1,0 +1,3 @@
+# Goal: close original-evidence fidelity QC gaps
+
+Execute PLAN.md against the user-authorized 300-condition Feature1.3 Principle2 audit. Main owns sequential implementation. Keep the existing byte custodian, sole CSV scanner and canonical comparison owner. Preserve every prior sealed proof and audit artifact; retain prior source bytes in the new owner's archive. Require fresh inherited and closure model/syntax/browser/download gates, exact condition dispositions, independently reviewed POST/FINAL and passing-baseline proof negatives. Qualify the executed local CSV contract only. Unsupported readers, vendor authenticity, human/device acceptance, actual native-work preemption and physical erasure remain explicit external boundaries.

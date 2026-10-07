@@ -1,0 +1,97 @@
+{
+  "passed": true,
+  "expectedPinSha256": "419030d8806155e4c520af102215b2c81deb4683ff00c2de466be2489ec27771",
+  "bootstrapIdentity": {
+    "size": 2204,
+    "sha256": "35327fc756edcd0fa12462500553bd5ac51d9952a912a9b4fe4cdc65743276e7"
+  },
+  "indexIdentity": {
+    "size": 249482,
+    "sha256": "c1dc729193a67c0cde68bde7455f7071d1196a78ad5843116348b7e28f17bd14"
+  },
+  "controls": [
+    {
+      "id": "wrong-expected-pin",
+      "expectedCause": "expected-pin-hash",
+      "exit": 1,
+      "command": [
+        "C:\\Users\\aryas\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py",
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 27, in <module>\n    need(len(sys.argv)==2,'expected-pin-required');pin=pin_payload((Path(__file__).parent/'PIN.json').read_bytes(),sys.argv[1]);checked_index(pin)\n                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 15, in pin_payload\n    need(isinstance(expected,str) and len(expected)==64 and hashlib.sha256(raw).hexdigest()==expected,'expected-pin-hash');pin=loads(raw)\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 6, in need\n    if not ok:raise AssertionError(cause)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: expected-pin-hash\n",
+      "preLoadRejection": true
+    },
+    {
+      "id": "index-substitution",
+      "expectedCause": "pinned-index",
+      "exit": 1,
+      "command": [
+        "C:\\Users\\aryas\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py",
+        "419030d8806155e4c520af102215b2c81deb4683ff00c2de466be2489ec27771"
+      ],
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 27, in <module>\n    need(len(sys.argv)==2,'expected-pin-required');pin=pin_payload((Path(__file__).parent/'PIN.json').read_bytes(),sys.argv[1]);checked_index(pin)\n                                                                                                                                ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 20, in checked_index\n    for key in ['index','verifier']:need(identity(root/pin[key]['path'])==pin[key]['identity'],'pinned-'+key)\n                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 6, in need\n    if not ok:raise AssertionError(cause)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: pinned-index\n",
+      "preLoadRejection": true,
+      "changedLeaf": {
+        "path": "proof-index.json",
+        "identity": {
+          "size": 249517,
+          "sha256": "32953fd0f6a4f525bcab55c716b60721f6f51cfd6b6a0fbfccccb734b0aee5f6"
+        }
+      }
+    },
+    {
+      "id": "verifier-substitution",
+      "expectedCause": "pinned-verifier",
+      "exit": 1,
+      "command": [
+        "C:\\Users\\aryas\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py",
+        "419030d8806155e4c520af102215b2c81deb4683ff00c2de466be2489ec27771"
+      ],
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 27, in <module>\n    need(len(sys.argv)==2,'expected-pin-required');pin=pin_payload((Path(__file__).parent/'PIN.json').read_bytes(),sys.argv[1]);checked_index(pin)\n                                                                                                                                ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 20, in checked_index\n    for key in ['index','verifier']:need(identity(root/pin[key]['path'])==pin[key]['identity'],'pinned-'+key)\n                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 6, in need\n    if not ok:raise AssertionError(cause)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: pinned-verifier\n",
+      "preLoadRejection": true,
+      "changedLeaf": {
+        "path": "verify.py",
+        "identity": {
+          "size": 2657,
+          "sha256": "f29db6fddf0c8bfa1ef5fde79088346786d50d53030d491282cfd0cf726d3f27"
+        }
+      }
+    },
+    {
+      "id": "source-substitution",
+      "expectedCause": "pinned-leaf",
+      "exit": 1,
+      "command": [
+        "C:\\Users\\aryas\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py",
+        "419030d8806155e4c520af102215b2c81deb4683ff00c2de466be2489ec27771"
+      ],
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 27, in <module>\n    need(len(sys.argv)==2,'expected-pin-required');pin=pin_payload((Path(__file__).parent/'PIN.json').read_bytes(),sys.argv[1]);checked_index(pin)\n                                                                                                                                ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 24, in checked_index\n    p=(owner/name).resolve();need(p.is_relative_to(owner) and p.is_file() and identity(p)==wanted,'pinned-leaf')\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py\", line 6, in need\n    if not ok:raise AssertionError(cause)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: pinned-leaf\n",
+      "preLoadRejection": true,
+      "changedLeaf": {
+        "path": "candidate-5/app.mjs",
+        "identity": {
+          "size": 87652,
+          "sha256": "cfb00112838bf900139c810ce65e694e0b32ff837db950d407f316c3e51c8d15"
+        }
+      }
+    }
+  ],
+  "qualifiedPackMutated": false,
+  "negativeCopyRetained": "C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\output\\file-compatibility-principle-5-negative-entry"
+}

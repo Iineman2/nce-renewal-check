@@ -1,0 +1,61 @@
+async (page) => {
+  await page.goto('http://localhost:8765/');
+  const next = page.getByRole('button', { name: 'Next' });
+  await page.getByRole('radio', { name: 'We manage and resell it for a customer' }).check();
+  await next.click();
+  await page.locator('fieldset').nth(1).getByRole('radio', { name: "I'm not sure" }).check();
+  await next.click();
+  await page.getByRole('radio', { name: 'HaloPSA' }).check();
+  await next.click();
+  await page.getByRole('radio', { name: 'Annual commitment for seat-based Microsoft 365 NCE (may be billed monthly)' }).check();
+  await next.click();
+  const date = await page.evaluate(() => {
+    const value = new Date();
+    value.setDate(value.getDate() + 14);
+    return `${value.getFullYear()}-${String(value.getMonth() + 1).padStart(2, '0')}-${String(value.getDate()).padStart(2, '0')}`;
+  });
+  await page.getByRole('radio', { name: 'I know the date' }).check();
+  await page.getByRole('textbox', { name: 'Renewal date' }).fill(date);
+  await page.getByRole('button', { name: 'Check fit' }).click();
+  await page.getByRole('heading', { name: 'May fit — verify these items' }).waitFor({ state: 'visible' });
+  await page.getByRole('radio', { name: 'Yes', exact: true }).check();
+  await page.getByRole('radio', { name: 'Annual commitment', exact: true }).check();
+  const csv = (distributor) => `source_account_id,subscription_id,customer_ref,distributor,product_family,commerce_model,seat_based,commitment_term,renewal_date,end_of_term_state\nsynthetic-account,sub-unknown,customer-a,${distributor},Microsoft 365,NCE,yes,annual,${date},renew\n`;
+  const halo = 'line_id,subscription_id,customer_ref,billing_system\nline-unknown,sub-unknown,customer-a,HaloPSA\n';
+  await page.locator('#halo-file').setInputFiles({ name: 'halo.csv', mimeType: 'text/csv', buffer: Buffer.from(halo) });
+  await page.getByRole('textbox', { name: 'Pax8 subscription ID to check' }).fill('sub-unknown');
+  const checkSource = async (value, heading) => {
+    await page.locator('#pax-file').setInputFiles({ name: `${value || 'blank'}.csv`, mimeType: 'text/csv', buffer: Buffer.from(csv(value)) });
+    await page.getByRole('button', { name: 'Check record facts' }).click();
+    await page.getByRole('heading', { name: 'Confirm these records describe the same case' }).waitFor({ state: 'visible' });
+    await page.getByRole('button', { name: 'I checked this subscription, line, and customer in the original systems' }).click();
+    await page.getByRole('heading', { name: heading }).waitFor({ state: 'visible' });
+  };
+  await checkSource('pax8', 'Supplied records look in scope provisionally');
+  await page.getByRole('heading', { name: 'Unknown answers informed by supplied files' }).waitFor({ state: 'visible' });
+  if (!(await page.getByText(/distributor: your answer was “unknown”/).isVisible())) throw new Error('The source of the formerly unknown answer was hidden');
+  await page.addScriptTag({ url: 'http://localhost:8765/qc-vendor/axe-4.10.3.min.js' });
+  const scan = async (name) => {
+    const violations = await page.evaluate(async () => (await window.axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] } })).violations.map((item) => item.id));
+    if (violations.length) throw new Error(`${name} accessibility violations: ${violations.join(', ')}`);
+  };
+  await scan('file-informed unknown');
+  await checkSource('unknown', 'More evidence is needed');
+  await scan('unknown file');
+  await checkSource('other', 'Supplied information indicates outside this release');
+  await scan('known unsupported file');
+  await page.getByRole('button', { name: 'Change answers' }).click();
+  await next.click();
+  await page.getByRole('radio', { name: 'Another distributor or Microsoft directly' }).check();
+  await next.click();
+  await page.getByRole('heading', { name: 'Answers indicate outside this release' }).waitFor({ state: 'visible' });
+  await page.getByRole('button', { name: 'Continue to record comparison' }).click();
+  for (let i = 0; i < 2; i++) await next.click();
+  await page.getByRole('button', { name: 'Check fit' }).click();
+  await page.getByRole('radio', { name: 'Yes', exact: true }).check();
+  await page.locator('#halo-file').setInputFiles({ name: 'halo.csv', mimeType: 'text/csv', buffer: Buffer.from(halo) });
+  await page.getByRole('textbox', { name: 'Pax8 subscription ID to check' }).fill('sub-unknown');
+  await checkSource('unknown', 'Supplied information indicates outside this release');
+  if (!(await page.getByText(/supplied Pax8 value for distributor is missing or unknown/i).isVisible())) throw new Error('Missing source verification was not shown');
+  return 'PASS: unknown answer can be informed by a supplied file; unknown file never means other; known other is preserved; 0 automated A/AA violations on each result';
+}

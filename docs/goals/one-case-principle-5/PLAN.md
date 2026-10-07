@@ -1,0 +1,24 @@
+# Find one intended case efficiently Implementation Plan
+
+**Intent:** Implement Feature 1.2 Principle 5 using locally supplied normalized Pax8 CSV; operators can find a case by recognizable attributes without memorizing an ID.
+**Current Behavior:** Record check requires exact manual ID; canonical selection blocks every globally duplicated ID and incomplete identity. No searchable case list exists.
+**Expected Outcome:** Source-only finder, literal all-token discovery search, explicit account/customer/product/inclusive renewal-range filters, exact counts and accessible 20-row pages. Show identity, descriptive differences, date, logical record number, duplicate/invalid ID reasons and missing values. One match is displayed directly. Explicit Use this case carries its exact original subscription ID and inspectable canonical evidence into the existing workflow without granting confirmation or eligibility.
+**Target-Perspective Output:** A keyboard operator loads only Pax8, finds a target by customer/product/date, sees relevant differences and chooses it without copying an identifier. Empty/error states offer clear recovery. Search/filter/paging invalidates current confirmation; stale controls/read callbacks cannot resurrect a case.
+**Truth Owner:** Existing preflight.mjs parser and private canonicalCaseSubject/receipt remain sole source, identity and confirmation owners. Finder privately retains parsed source/search summaries; choice re-enters canonical exact-ID selection. UI never manufactures IDs or privately disambiguates duplicates.
+**Contract Boundary:** UTF-8 normalized CSV within existing2MB/5000row/64column/1024cell limits. Search is literal, case-insensitive descriptive discovery (all whitespace-separated tokens); identity remains trim-only case-sensitive. No fuzzy matching or description-based linking. Account exact filter remains case-sensitive. Missing/invalid dates are excluded by active date filters with visible count. Query/description filters<=160characters, account<=128; invisible/control characters and invalid/reversed dates rejected. Preview pages20, deterministic source order, exact total.
+**Cutover:** Add finder immediately after Pax8 file control. Manual exact-ID input remains an optional shortcut and uses identical canonical selection/check pipeline. Existing comparison/link workflow remains unchanged.
+**Displaced Path:** ID memorization is demoted to optional shortcut; no second selection, parser, receipt owner or comparison classifier.
+**Value Density:** One private finder index in existing domain module, one app flow and simple native accessible controls. No provider integration, persistence, chooser-based duplicate resolution or background uploads.
+**Acceptance Evidence:** Named model tests for search/filter/count/pagination/choice/freshness/trust/resource limits; actual browser source-only recognition, select/inspect/compare, duplicates, empty/error/reset/cancel/stale/fault/keyboard/reflow/axe cases. Full existing unit/browser/syntax regression. Frozen source and served bytes, executed required test mappings, negative evidence mutations, independent PRE/POST/correctness/maintainability/final review.
+**Evidence Lane:** Representative local supplied CSV and supported browser, with synthetic recognizable exports. Real operator efficiency/comprehension and native vendor-export acceptance remain external pending.
+**Kill Criteria:** Reject global duplicates despite narrowed search; never guess unknown identity/date or silently choose first match; no implicit confirmation/link/eligibility; clear obsolete case on discovery changes/errors; require real browser and bound execution proof before local acceptance.
+**Architecture Slice:** Modify scope-fit/preflight.mjs,app.mjs,index.html,README.md; add case-finder.test.mjs,ui-case-finder.js,ONE_CASE_PRINCIPLE_5.md. Add output/one-case-principle-5 QC capture/execution/verification tools and gate ledger. Preserve prior audit/proof packs and all untracked workspace work. No vendor/deploy/send/financial writes.
+**Plan Review Gate:** Independent PRE required before implementation; POST correctness/maintainability and final evidence review required before completion.
+
+Ordered board (main owns all source edits; reviewers read only except receipts):
+1. PRE review and fixes to this contract.
+2. Private finder handle, deterministic bounded search and canonical row-choice, named unit assertions.
+3. Source-only finder UI, direct ID handoff and complete invalidation/read/focus lifecycle; browser acceptance and existing regressions.
+4. Repeatable frozen QC pack, gate-specific executed proof, negative corruption checks and bounded/external gates.
+5. POST review fixes; freeze final source and execute all units/browser/syntax; actual resource/screenshot and independent final readback.
+6. Document verified outcomes, final local/bounded acceptance and external limits. No source changes after freeze without fresh executions.

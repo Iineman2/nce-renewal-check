@@ -1,0 +1,107 @@
+{
+  "status": "COMPLETE",
+  "clientDate": "2026-10-07",
+  "recordedUTC": "2026-10-07T03:55:51.499502+00:00",
+  "scope": "PASS_WITHIN_SUPPORTED_LOCAL_CONTRACT",
+  "principle": "Feature 1.3 Principle 4: File contents must remain data",
+  "result": {
+    "passed": true,
+    "scope": "PASS_WITHIN_SUPPORTED_LOCAL_CONTRACT",
+    "sourceFiles": 178,
+    "qualificationSource": "candidate-10",
+    "QCOnlyBridgeFiles": 2,
+    "unchangedExecutionReceipts": 13,
+    "models": 713,
+    "modelFiles": 35,
+    "syntaxFiles": 115,
+    "dataGroups": 108,
+    "nativeDataWorkers": 222,
+    "dataOriginals": 17,
+    "detectorControls": 46,
+    "checkpoints": 211,
+    "dataConsumerControls": 26,
+    "CSPCases": 11,
+    "nativeCustodyGroups": 8,
+    "nativeCustodyWorkers": 18,
+    "pristineGroups": 2,
+    "pristineOriginals": 2,
+    "regressionSuites": 11,
+    "regressionGroups": 452,
+    "regressionOriginals": 58,
+    "layoutCopies": 6,
+    "axeScans": 30,
+    "PNGFiles": 12,
+    "nativeFrontiers": 12,
+    "worstHeartbeatMs": 23.899999856948853,
+    "worstNativeTaskMs": 1581.5,
+    "consumerControls": 57,
+    "auditConditions": 223,
+    "dispositions": {
+      "CURRENT_EXECUTED": 116,
+      "CURRENT_SOURCE_BOUNDARY": 49,
+      "DISABLED_FUTURE_BOUNDARY": 23,
+      "HOST_TRUST_BOUNDARY": 17,
+      "FINITE_QUALIFICATION_BOUNDARY": 10,
+      "ADJACENT_AUTHORITY_BOUNDARY": 8
+    },
+    "priorLeavesUnchanged": 7708,
+    "environment": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+      "platform": "Win32",
+      "hardwareConcurrency": 16,
+      "viewport": [
+        1280,
+        720
+      ]
+    },
+    "sealedLeaves": 2484,
+    "indexSha256": "3b8313d5b57b0a28c2493c217e74919121c9582b95d597b9c0a1cf60ade31e95"
+  },
+  "PIN": {
+    "size": 504,
+    "sha256": "cf19d3e11274b61f8e7bbebb0a61ee475712991173e6181610068c38634789b7"
+  },
+  "bootstrap": {
+    "size": 2387,
+    "sha256": "e6871b7bd824199ccdbaf275e67ab0102a541a65e5c9c51ad6bb3d4b6d9e4cc0"
+  },
+  "verifier": {
+    "size": 15837,
+    "sha256": "d970fcb585798beb5887e23f10f895f3e20a507b20a14aa38a7e64f9a547bbe9"
+  },
+  "index": {
+    "size": 403100,
+    "sha256": "3b8313d5b57b0a28c2493c217e74919121c9582b95d597b9c0a1cf60ade31e95"
+  },
+  "verificationReceipt": {
+    "size": 2412,
+    "sha256": "3481f983c5ee7acefc85b936873c13df04f7e97de7ad3ab43083936b22127858"
+  },
+  "entryNegativeControls": {
+    "size": 3186,
+    "sha256": "61fd24e1b60abe6c90db4de38895e6909ae83a2fe51896a3740978f56b06d0bf"
+  },
+  "reviews": {
+    "size": 1919,
+    "sha256": "5e1466000194c639c39f56ce95ea49ea29d0c789a5980e24670468502fcc78bb"
+  },
+  "runtimeResolution": {
+    "failedAttempt": "bootstrap-verification-1.txt",
+    "failure": "C:/Python312 stores PIL only in excluded user-site packages; isolated import failed before qualification replay.",
+    "resolution": "Existing bundled Python 3.12.14 has PIL in its standard package directory. Both bootstrap and verifier retain -I -B; no proof/source changes, new dependency install or weakened isolation.",
+    "qualifiedInterpreter": {
+      "path": "C:\\Users\\aryas\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "size": 107312,
+      "sha256": "b7a12c3af0b4db44191eec14ea095eba731b7328917f570806183093d19ddca2"
+    }
+  },
+  "openMaterialFindings": 0,
+  "openSupportedContractFailures": 0,
+  "externalBoundaries": [
+    "Only normalized UTF-8 CSV is enabled.",
+    "Captured Windows/Chromium/Node environment; arbitrary devices, scheduling and peak memory remain bounded.",
+    "Native OS/application/downstream host trust, source authenticity, financial authority, future rich formats or AI/export consumers are not certified."
+  ],
+  "historicalProofPreserved": true,
+  "sealedPackModifiedAfterSeal": false
+}

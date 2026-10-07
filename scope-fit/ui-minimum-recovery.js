@@ -1,0 +1,74 @@
+async (page) => {
+  await page.goto('http://localhost:8765/');
+  const next = page.getByRole('button', { name: 'Next' });
+  await page.getByRole('radio', { name: 'The customer buys directly' }).check();
+  await next.click();
+  await page.getByRole('heading', { name: 'Answers indicate outside this release' }).waitFor({ state: 'visible' });
+  await page.getByRole('button', { name: 'Continue to record comparison' }).click();
+  await page.getByRole('button', { name: 'Back' }).click();
+  await page.getByRole('radio', { name: 'We manage and resell it for a customer' }).check();
+  await next.click();
+  await page.getByRole('radio', { name: 'Another distributor or Microsoft directly' }).check();
+  await next.click();
+  await page.getByRole('heading', { name: 'Answers indicate outside this release' }).waitFor({ state: 'visible' });
+  if (!(await page.getByText(/supports subscriptions purchased through Pax8/i).isVisible())) throw new Error('New blocker was not routed after correcting the acknowledged answer');
+  await page.getByRole('button', { name: 'Edit distributor answer' }).click();
+  await page.getByRole('radio', { name: 'Pax8', exact: true }).check();
+  await next.click();
+  await page.getByRole('radio', { name: 'Another billing system' }).check();
+  await next.click();
+  await page.getByRole('button', { name: 'Edit billing answer' }).click();
+  await page.getByRole('radio', { name: 'HaloPSA' }).check();
+  await next.click();
+  await page.getByRole('radio', { name: 'Pax8 shows a monthly commitment term' }).check();
+  await next.click();
+  await page.getByRole('button', { name: 'Edit commitment answer' }).click();
+  await page.getByRole('radio', { name: 'Annual commitment for seat-based Microsoft 365 NCE (may be billed monthly)' }).check();
+  await next.click();
+  const date = await page.evaluate(() => {
+    const value = new Date(); value.setDate(value.getDate() + 14);
+    return `${value.getFullYear()}-${String(value.getMonth() + 1).padStart(2, '0')}-${String(value.getDate()).padStart(2, '0')}`;
+  });
+  await page.getByRole('radio', { name: 'I know the date' }).check();
+  await page.getByRole('textbox', { name: 'Renewal date' }).fill(date);
+  await page.getByRole('button', { name: 'Check fit' }).click();
+  await page.getByRole('heading', { name: 'Answers look in scope' }).waitFor({ state: 'visible' });
+  await page.getByRole('radio', { name: 'Annual commitment', exact: true }).check();
+  const pax = `source_account_id,subscription_id,customer_ref,distributor,product_family,commerce_model,seat_based,commitment_term,renewal_date,end_of_term_state\nsynthetic-account,sub-recovery,customer-a,pax8,Microsoft 365,NCE,yes,annual,${date},renew\n`;
+  const halo = 'line_id,subscription_id,customer_ref,billing_system\nline-recovery,sub-recovery,customer-a,HaloPSA\n';
+  await page.locator('#pax-file').setInputFiles({ name: 'pax8.csv', mimeType: 'text/csv', buffer: Buffer.from(pax) });
+  await page.locator('#halo-file').setInputFiles({ name: 'halo.csv', mimeType: 'text/csv', buffer: Buffer.from(halo) });
+  await page.getByRole('textbox', { name: 'Pax8 subscription ID to check' }).fill('sub-recovery');
+  await page.getByRole('button', { name: 'Check record facts' }).click();
+  await page.getByRole('button', { name: 'I checked this subscription, line, and customer in the original systems' }).click();
+  await page.getByRole('heading', { name: 'More evidence is needed' }).waitFor({ state: 'visible' });
+  if (!(await page.getByText(/before a record-based coverage check, say whether the signed customer order or agreement is available/i).isVisible())) throw new Error('Deferred agreement was silently treated as yes');
+  await page.getByRole('button', { name: 'Change answers' }).click();
+  await page.getByRole('radio', { name: "I'm not sure" }).first().check();
+  for (let i = 0; i < 4; i++) await next.click();
+  await page.getByRole('button', { name: 'Check fit' }).click();
+  if (!(await page.locator('#pax-file').evaluate((input) => input.files.length === 1))) throw new Error('Questionnaire edit unnecessarily discarded Pax8 file');
+  if (!(await page.locator('#halo-file').evaluate((input) => input.files.length === 1))) throw new Error('Questionnaire edit unnecessarily discarded HaloPSA file');
+  if (await page.locator('#record-result').isVisible()) throw new Error('Old review result survived answer change');
+
+  await page.reload();
+  await page.getByRole('radio', { name: 'The customer buys directly' }).check();
+  await next.click();
+  await page.getByRole('button', { name: 'Continue to record comparison' }).click();
+  await page.getByRole('radio', { name: 'Another distributor or Microsoft directly' }).check();
+  await next.click();
+  await page.getByRole('radio', { name: 'Another billing system' }).check();
+  await next.click();
+  await page.getByRole('radio', { name: 'Pax8 shows a monthly commitment term' }).check();
+  await next.click();
+  await page.getByRole('radio', { name: "I'm not sure" }).last().check();
+  await page.getByRole('button', { name: 'Check fit' }).click();
+  for (const name of ['reseller', 'distributor', 'billing', 'commitment']) {
+    if (!(await page.getByRole('button', { name: `Edit ${name} answer` }).isVisible())) throw new Error(`Direct edit missing for ${name}`);
+  }
+  await page.getByRole('button', { name: 'Edit distributor answer' }).click();
+  await page.getByRole('radio', { name: 'Pax8', exact: true }).check();
+  await next.click();
+  if (!(await page.getByText('Question 3 of 5').isVisible())) throw new Error('Editing a later blocker restarted the same early-exit loop');
+  return 'PASS: direct edits, new blocker after Back, optional agreement, preserved files with stale review cleared, and multi-blocker recovery';
+}

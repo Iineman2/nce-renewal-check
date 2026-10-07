@@ -1,0 +1,10 @@
+# Principle 4 expanded closure
+
+Current acceptance command: `python output/one-case-principle-4-closure/qc.py verify`.
+The original Principle 4 receipts and audit remain historical evidence. The closure checker requires a new frozen candidate and complete executions; it never recaptures or rewrites evidence during verification.
+
+Expected behavior: unresolved account, customer, occurrence or ambiguous row stays visible and blocks confirmation. Standalone source attestation requires checking the exact account/customer/subscription/renewal against the original Pax8 record; it records self-attestation. Confirmation preserves inspected disclosure and focuses the source region when billing is pending or unusable, otherwise the result. Every incomplete-identity result receives focus. Changed or duplicated/replaced controls, cancelled/superseded reads, expiry, corrupt projections and rendering failures clear obsolete authority. Explicit joint/link confirmation remains a separate step.
+
+The 287-condition audit plus three reproduced findings has a 290-entry closure ledger. Local family regression evidence does not mean every numbered audit row was separately executed. New actionable coverage gaps carry executed scenario assertions. Native mapping/encoding, low-memory behavior, every browser/device/layout, human comprehension and real source/business acceptance remain bounded or pending. The supplied CSV parser limits and private receipt owner remain the canonical contract.
+
+The proof index has a fixed artifact inventory and binds hashes, run and source identities. Gates must reference prescribed executed tests; prose alone is insufficient. Resource proof must equal the executed maximal-review payload. Screenshot identity is bound to the frozen browser receipt. Negative tests first verify each disposable baseline and require the prescribed rejection category, then test negative-report semantics separately. The explicit self-proof boundary validates all final preconditions except the report's own negative provenance before generating that provenance; strict final verification then validates the whole sealed pack.

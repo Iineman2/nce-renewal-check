@@ -1,0 +1,23 @@
+# Feature 1.2 Principle 3 expanded QC closure
+
+## Implemented contract
+
+One shared input.mjs Unicode visibility rule covers Cc, Cf, Zl, Zp and Default_Ignorable_Code_Point. Identifiers remaining hidden after existing trim are explicitly unusable across Pax8 selectors/account/customer and Halo identifiers. They are never silently stripped or used to form complete identity. Ordinary meaningful Unicode and non-default-ignorable combining marks remain exact. Visible evidence uses U+ markers; exact JSON uses valid UTF16 escapes and roundtrips every original codepoint, including supplementary variation selectors, while literal marker/backslash strings remain distinct. The narrower app-only display/JSON and preflight identifier regex paths are displaced. Raw source evidence itself is unchanged.
+
+The current-case renderer builds a complete detached DocumentFragment, then commits it once. Its ownership is installed after success. If construction or commit fails before ownership, the submit error path clears/reset the subject region; no partial selected card or confirmation survives. This includes a failure after the DOM commit. Later Halo read/parse failure retains the independently validated, completely rendered Pax8 subject and its current-controls owner. Arbitrary persistent host/cleanup/API failure is bounded; no claim of recovery from a fully hostile runtime is made.
+
+## Regression and target-perspective evidence
+
+Six new model tests exercise every engine-defined default-ignorable codepoint, no regex cursor drift, exact JSON roundtrip/literal escape distinction, hidden-ID rejection across source systems, meaningful Unicode preservation, source-bound raw/header evidence, and 512 deterministic generated CSV fidelity scenarios. Earlier maximum 5000x64 fixtures, malicious/accessor/serialization/source-substitution and other suites remain gates.
+
+The new isolated browser script directly checks formerly hidden codepoints in headers/cells/original/JSON, hidden selector rejection, unsafe-customer raw recovery, literal filename/field instructions and distinct complete header labels. It covers 320px at 400% text and RTL, text spacing, forced colors, closed-inspector print visibility, current-engine activation and invalidation. Five early/middle/late/precommit/postcommit fault injections leave no selected partial card, no confirmation, pass tested axe A/AA scans, withstand silent ID edit plus focus and recover on retry. A later Halo failure still permits source inspection. A 64-column inspector with 1024-character optional cells retains every field and complete original JSON with tested mobile reflow. These are representative current-engine observations, not all browser/device/font/operator acceptance.
+
+## Expanded inventory and qualification
+
+All 120 audit scenarios and the two reproduced findings are retained in output/one-case-principle-3-closure/closure-ledger.json: 83 local-regression entries, 18 bounded-contract entries and 21 external-pending entries. Original failed audit probes, initial ruled-out header hypothesis and receipts are preserved. Entries classified local-regression link supported representative evidence; they do not claim every platform/event/input combination was run. Cross-engine activation and universal test-coverage claims remain explicitly bounded.
+
+Current-source qualification belongs to output/one-case-principle-3-closure. qc.py capture/unit/syntax/browser/verify binds source/dependency/served bytes, exact execution receipts and prior 132/102/101 inventories plus the prior 19 P3 gates and all 122 expanded IDs. Closure evidence paths must be captured sources. The verifier preserves bounded/external dispositions and rejects their promotion to local passes. Fifteen negative checks include missing expanded inventory and falsely promoted external acceptance. final-qualification.json and independent-review-receipt.json hold actual execution/review results; this document is not an execution receipt. Historical qualifications no longer qualify changed source.
+
+## Remaining boundaries
+
+Normalized decoded local CSV only. No native mapping, authenticated vendor/account identity, original byte/encoding provenance, source freshness attestation, cross-system authority, signed coverage or financial permission is implied. Human comprehension, real assistive-device tasks, low-memory/device-wide performance, all fonts/locales/print engines, arbitrary runtime replacement and future output consumers need separate acceptance or remain bounded. The inspector does not add search, an ambiguity chooser, persistence or a new selection-confirmation workflow. This closure introduces no provider writes, deployment, upload, charge or financial verdict.

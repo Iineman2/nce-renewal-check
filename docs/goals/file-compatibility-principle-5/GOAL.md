@@ -1,0 +1,3 @@
+# Goal: Implement Feature 1.3 Principle 5 authorized handling
+
+Use Krypton Execution to execute PLAN.md. Main owns implementation; independent agents perform read-only PRE/correctness/maintenance/plan/proof reviews. Preserve the exact current CSV/custody/resource/private business owners and minimal controls/information separation. Add the explicit local selection permission and unconditional revocation/removal lifecycle, prove it through native target-perspective evidence, retain all prior sealed evidence, and finish isolated hash-pinned qualification. No remote/new-format/hosted-deletion path or physical-erasure claim. Report implemented but unproven if an acceptance gate cannot be captured.

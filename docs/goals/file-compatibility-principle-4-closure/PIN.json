@@ -1,0 +1,17 @@
+{
+  "version": "file-data-closure-pin-v1",
+  "index": {
+    "path": "output/file-compatibility-principle-4-closure/proof-index.json",
+    "identity": {
+      "size": 403100,
+      "sha256": "3b8313d5b57b0a28c2493c217e74919121c9582b95d597b9c0a1cf60ade31e95"
+    }
+  },
+  "verifier": {
+    "path": "output/file-compatibility-principle-4-closure/verify.py",
+    "identity": {
+      "size": 15837,
+      "sha256": "d970fcb585798beb5887e23f10f895f3e20a507b20a14aa38a7e64f9a547bbe9"
+    }
+  }
+}

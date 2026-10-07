@@ -1,0 +1,166 @@
+{
+  "passed": true,
+  "command": [
+    "C:\\Users\\aryas\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-I",
+    "-B",
+    "C:\\Users\\aryas\\OneDrive\\Documents\\ChatGPT\\goal\\docs\\goals\\file-compatibility-principle-5\\bootstrap.py",
+    "419030d8806155e4c520af102215b2c81deb4683ff00c2de466be2489ec27771"
+  ],
+  "exit": 0,
+  "expectedPinSha256": "419030d8806155e4c520af102215b2c81deb4683ff00c2de466be2489ec27771",
+  "bootstrapIdentity": {
+    "size": 2204,
+    "sha256": "35327fc756edcd0fa12462500553bd5ac51d9952a912a9b4fe4cdc65743276e7"
+  },
+  "PINIdentity": {
+    "size": 489,
+    "sha256": "419030d8806155e4c520af102215b2c81deb4683ff00c2de466be2489ec27771"
+  },
+  "runtimeIdentity": {
+    "size": 107312,
+    "sha256": "b7a12c3af0b4db44191eec14ea095eba731b7328917f570806183093d19ddca2"
+  },
+  "stdoutIdentity": {
+    "size": 2122,
+    "sha256": "ac6e43f76c86f91c8ed7a83bd54c05336590ea7f3c3b0a655859bfa207ca79d7"
+  },
+  "stderrIdentity": {
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "result": {
+    "status": "PASS_WITHIN_SUPPORTED_LOCAL_CONTRACT",
+    "source": "candidate-5",
+    "sourceFiles": 183,
+    "models": 751,
+    "priorLeavesPreserved": 10205,
+    "browser": {
+      "handling": {
+        "receipt": "handling-current",
+        "groups": 22,
+        "axe": 1,
+        "originals": 1
+      },
+      "policy": {
+        "receipt": "policy-current",
+        "groups": 4,
+        "moduleVariants": 5
+      },
+      "native": {
+        "receipt": "native-current",
+        "groups": 8,
+        "originals": 0
+      },
+      "pristine": {
+        "receipt": "pristine-current",
+        "groups": 2,
+        "originals": 2
+      },
+      "data": {
+        "receipt": "data-current",
+        "groups": 108,
+        "nativeWorkers": 222,
+        "originals": 17,
+        "detectorControls": 46,
+        "CSPCases": 11,
+        "axe": 1,
+        "verifierControls": 26
+      },
+      "regressions": {
+        "suites": 11,
+        "groups": 452,
+        "axe": 29,
+        "originalsWithPathWitness": 58,
+        "layoutCopies": 6,
+        "nativeFrontiers": 12,
+        "worstHeartbeatMs": 14.700000047683716
+      }
+    },
+    "negativeControls": [
+      {
+        "cause": "handling-group-inventory",
+        "detected": true
+      },
+      {
+        "cause": "handling-stale-action",
+        "detected": true
+      },
+      {
+        "cause": "handling-stale-action",
+        "detected": true
+      },
+      {
+        "cause": "handling-download-inventory",
+        "detected": true
+      },
+      {
+        "cause": "handling-source-traffic",
+        "detected": true
+      },
+      {
+        "cause": "handling-native-reservation",
+        "detected": true
+      },
+      {
+        "cause": "handling-recipient-effect",
+        "detected": true
+      },
+      {
+        "cause": "handling-recipients",
+        "detected": true
+      },
+      {
+        "cause": "handling-observer-control",
+        "detected": true
+      },
+      {
+        "cause": "handling-accessibility",
+        "detected": true
+      },
+      {
+        "cause": "handling-worker-wire",
+        "detected": true
+      },
+      {
+        "cause": "invalid-json",
+        "detected": true
+      },
+      {
+        "cause": "duplicate-json-key",
+        "detected": true
+      },
+      {
+        "cause": "nonfinite-json",
+        "detected": true
+      },
+      {
+        "cause": "policy-inventory",
+        "detected": true
+      },
+      {
+        "cause": "policy-calibration",
+        "detected": true
+      },
+      {
+        "cause": "policy-before-admission",
+        "detected": true
+      },
+      {
+        "cause": "policy-executed-source",
+        "detected": true
+      },
+      {
+        "cause": "policy-positive",
+        "detected": true
+      }
+    ],
+    "coverageConditions": 105,
+    "reviewRoles": 5,
+    "reviewsPendingFinal": false,
+    "sealedLeaves": 1532,
+    "verifiedPNG": 60,
+    "indexSha256": "c1dc729193a67c0cde68bde7455f7071d1196a78ad5843116348b7e28f17bd14",
+    "verifierSha256": "97e32f617626ddc1c2ed6a7f38f09a4a4c669592517dc8417c4dfd5aa2ef2029"
+  }
+}
