@@ -2,6 +2,7 @@
 
 # Generated proof archives, native browser traces, and publication staging.
 # The existing output tree is preserved locally and published as a release asset.
+# The model tests' single required audit ledger is tracked explicitly.
 output/
 .publication/
 node_modules/

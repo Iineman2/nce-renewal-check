@@ -53,7 +53,7 @@ Browser QC fixtures are `scope-fit/ui-*.js`; they use isolated Playwright sessio
 
 ## QC archive
 
-The initial [GitHub release](https://github.com/Iineman2/nce-renewal-check/releases/tag/v0.1.0-prototype) includes the complete historical `output/` tree as a compressed archive. It contains source snapshots, scripts, audit ledgers, failed attempts, synthetic inputs, traces, and accepted receipts. The archive manifest records every file's size and SHA-256. Git excludes the generated archive and local browser sessions.
+The initial [GitHub release](https://github.com/Iineman2/nce-renewal-check/releases/tag/v0.1.0-prototype) includes the complete historical `output/` tree as a compressed archive. It contains source snapshots, scripts, audit ledgers, failed attempts, synthetic inputs, traces, and accepted receipts. The archive manifest records every file's size and SHA-256. Git excludes generated output and local browser sessions, with one unchanged audit ledger tracked at its original path because the model tests require it. A fresh clone can run `npm test` without downloading the archive.
 
 Extract the archive into the repository root to restore `output/` and use historical proof entrypoints. A historical verifier may correctly reject later source or environment changes. Retained failures and development runs must not be counted as passing gates. Machine-specific paths in historical tooling may need an explicit portability adaptation; do not rewrite sealed evidence or pins to make a verifier pass.
 
